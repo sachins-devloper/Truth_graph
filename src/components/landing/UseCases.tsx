@@ -51,16 +51,16 @@ export const UseCases: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-950 border-t border-slate-900">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-xs font-bold text-emerald-400 font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-3 inline-block">
+          <span className="text-xs font-bold text-emerald-700 font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 mb-3 inline-block">
             Real-World Project Usage
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             Investigation Use Cases
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
             TruthGraph adapts its research strategy dynamically across 6 primary investigation domains.
           </p>
         </div>
@@ -71,28 +71,28 @@ export const UseCases: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/40 rounded-2xl p-6 flex flex-col justify-between transition-all hover:shadow-xl hover:shadow-indigo-950/20 group"
+                className="bg-slate-50/80 border border-slate-200/90 hover:border-indigo-300 rounded-2xl p-6 flex flex-col justify-between transition-all hover:shadow-xl hover:shadow-indigo-500/10 group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-indigo-400" />
+                    <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-indigo-600" />
                     </div>
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-slate-950 text-indigo-300 border border-slate-800">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white text-indigo-700 border border-slate-200 font-semibold">
                       {uc.badge}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-base text-white mb-2">{uc.category}</h3>
-                  <p className="text-xs font-mono text-indigo-300 mb-3 bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+                  <h3 className="font-bold text-base text-slate-900 mb-2">{uc.category}</h3>
+                  <p className="text-xs font-mono text-indigo-800 mb-3 bg-white p-2.5 rounded-xl border border-slate-200/80 font-medium">
                     {uc.example}
                   </p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans mb-4">{uc.description}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed font-sans mb-4">{uc.description}</p>
                 </div>
 
                 <Link
                   href={`/investigate?q=${encodeURIComponent(uc.example.replace(/^"|"$/g, ''))}`}
-                  className="inline-flex items-center gap-1 text-xs font-semibold font-mono text-indigo-400 hover:text-indigo-300 transition-colors pt-2 border-t border-slate-800/80"
+                  className="inline-flex items-center gap-1 text-xs font-semibold font-mono text-indigo-600 hover:text-indigo-800 transition-colors pt-3 border-t border-slate-200"
                 >
                   <span>Investigate This Scenario</span>
                   <ArrowRight className="w-3.5 h-3.5" />

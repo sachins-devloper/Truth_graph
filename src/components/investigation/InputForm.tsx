@@ -36,19 +36,19 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
   ];
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
+    <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-xl backdrop-blur-xl">
       <form onSubmit={handleSubmit}>
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-4 h-4 text-indigo-400" />
-          <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider font-mono">
+          <Sparkles className="w-4 h-4 text-indigo-600" />
+          <span className="text-xs font-semibold text-indigo-700 uppercase tracking-wider font-mono">
             TruthGraph AI Agent
           </span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">
           Start an AI Web Investigation
         </h2>
-        <p className="text-sm text-slate-400 mb-8">
+        <p className="text-sm text-slate-600 mb-8">
           Enter any claim, company, job vacancy, e-commerce deal, or public statement to perform a live multi-engine SerpApi investigation.
         </p>
 
@@ -59,13 +59,13 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="What would you like to investigate today? (e.g. Is Company X hiring software engineers in Chennai?)"
-            className="w-full bg-slate-950/90 border border-slate-700/80 rounded-xl p-4 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none shadow-inner"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl p-4 text-sm sm:text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 transition-all resize-none shadow-inner"
           />
         </div>
 
         {/* Category Selection */}
         <div className="mb-8">
-          <span className="text-xs text-slate-400 font-semibold block mb-3 font-mono uppercase tracking-wider">
+          <span className="text-xs text-slate-500 font-semibold block mb-3 font-mono uppercase tracking-wider">
             Investigation Stance Focus:
           </span>
           <div className="flex flex-wrap gap-2">
@@ -74,8 +74,8 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
               onClick={() => setSelectedCategory('auto')}
               className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                 selectedCategory === 'auto'
-                  ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30'
-                  : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700'
+                  ? 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-600/20'
+                  : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
               }`}
             >
               Auto-Detect Intent
@@ -89,8 +89,8 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
                   onClick={() => setSelectedCategory(cat.id as InvestigationCategory)}
                   className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                     selectedCategory === cat.id
-                      ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30'
-                      : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700'
+                      ? 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-600/20'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -102,15 +102,15 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
         </div>
 
         {/* Action Button & Sample Triggers */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-slate-800/80">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-slate-200">
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-500 font-mono">Samples:</span>
+            <span className="text-slate-400 font-mono">Samples:</span>
             {samplePrompts.map((p, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setQuestion(p.text)}
-                className="text-indigo-400 hover:text-indigo-300 hover:underline font-medium px-2 py-1 rounded bg-slate-950 border border-slate-800/80 transition-colors"
+                className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 transition-colors"
               >
                 {p.label}
               </button>
@@ -120,7 +120,7 @@ export const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => 
           <button
             type="submit"
             disabled={isLoading || !question.trim()}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-indigo-600/30 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-indigo-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>

@@ -21,10 +21,10 @@ export const SearchCoverageGrid: React.FC<SearchCoverageGridProps> = ({ coverage
   };
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl mb-8">
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-4 mb-4">
-        <Layers className="w-5 h-5 text-indigo-400" />
-        <h3 className="font-bold text-white text-base">SerpApi Multi-Engine Coverage Matrix</h3>
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-8">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-4 mb-4">
+        <Layers className="w-5 h-5 text-indigo-600" />
+        <h3 className="font-bold text-slate-900 text-base">SerpApi Multi-Engine Coverage Matrix</h3>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
@@ -36,23 +36,23 @@ export const SearchCoverageGrid: React.FC<SearchCoverageGridProps> = ({ coverage
               key={idx}
               className={`p-4 rounded-xl border flex flex-col items-center justify-center text-center transition-all ${
                 c.queried
-                  ? 'bg-indigo-950/40 border-indigo-500/40 text-white'
-                  : 'bg-slate-950/40 border-slate-800 text-slate-600 opacity-60'
+                  ? 'bg-indigo-50/70 border-indigo-200 text-slate-900'
+                  : 'bg-slate-50 border-slate-200 text-slate-400 opacity-70'
               }`}
             >
-              <div className="mb-2 p-2 rounded-lg bg-slate-900 border border-slate-800">
-                <Icon className={`w-5 h-5 ${c.queried ? 'text-indigo-400' : 'text-slate-600'}`} />
+              <div className="mb-2 p-2 rounded-lg bg-white border border-slate-200 shadow-sm">
+                <Icon className={`w-5 h-5 ${c.queried ? 'text-indigo-600' : 'text-slate-400'}`} />
               </div>
               <span className="text-xs font-bold font-mono mb-1">{details.name}</span>
               <div className="flex items-center gap-1 text-[11px] font-mono">
                 {c.queried ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-300">{c.results_count} Hits</span>
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="text-emerald-700 font-semibold">{c.results_count} Hits</span>
                   </>
                 ) : (
                   <>
-                    <Minus className="w-3.5 h-3.5 text-slate-600" />
+                    <Minus className="w-3.5 h-3.5 text-slate-400" />
                     <span>Not Needed</span>
                   </>
                 )}
@@ -64,3 +64,4 @@ export const SearchCoverageGrid: React.FC<SearchCoverageGridProps> = ({ coverage
     </div>
   );
 };
+

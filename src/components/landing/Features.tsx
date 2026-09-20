@@ -32,19 +32,19 @@ export const Features: React.FC = () => {
     },
     {
       icon: Compass,
-      title: '7 Investigation Categories',
-      description: 'Supports Job & Company verification, Product deal analysis, Funding claim verification, Local business checks, Travel plans, and Public info.'
+      title: '6 Primary Investigation Categories',
+      description: 'Supports Job & Company verification, Product deal analysis, Funding claim verification, Local business checks, Travel feasibility, and Public info.'
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-950">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             Engineered for Deep AI Investigation
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
             TruthGraph goes beyond surface-level summaries to bring transparent, evidence-first intelligence to every user query.
           </p>
         </div>
@@ -55,13 +55,13 @@ export const Features: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/40 rounded-2xl p-6 transition-all hover:shadow-xl hover:shadow-indigo-950/20 group"
+                className="bg-slate-50 border border-slate-200 hover:border-indigo-300 rounded-2xl p-6 transition-all hover:shadow-xl hover:shadow-indigo-500/10 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6 text-indigo-400" />
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Icon className="w-6 h-6 text-indigo-600" />
                 </div>
-                <h3 className="font-bold text-lg text-white mb-2">{feat.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{feat.description}</p>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">{feat.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-sans">{feat.description}</p>
               </div>
             );
           })}

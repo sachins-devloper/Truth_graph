@@ -87,12 +87,12 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
         <Header />
         <main className="flex-grow flex items-center justify-center p-8">
           <div className="text-center">
-            <div className="w-10 h-10 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-sm font-mono text-slate-400">Loading Investigation Workspace...</p>
+            <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mx-auto mb-4" />
+            <p className="text-sm font-mono text-slate-600">Loading Investigation Workspace...</p>
           </div>
         </main>
         <Footer />
@@ -102,12 +102,12 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
 
   if (!investigation) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
         <Header />
         <main className="flex-grow flex items-center justify-center p-8">
-          <div className="text-center bg-slate-900 border border-slate-800 p-8 rounded-2xl max-w-md">
-            <h2 className="text-xl font-bold text-white mb-2">Investigation Not Found</h2>
-            <p className="text-xs text-slate-400 mb-4">The requested investigation ID could not be found.</p>
+          <div className="text-center bg-white border border-slate-200 p-8 rounded-2xl max-w-md shadow-sm">
+            <h2 className="text-xl font-bold text-slate-900 mb-2">Investigation Not Found</h2>
+            <p className="text-xs text-slate-500 mb-4">The requested investigation ID could not be found.</p>
           </div>
         </main>
         <Footer />
@@ -118,7 +118,7 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
   const report = investigation.report;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
       <Header />
 
       <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -179,3 +179,4 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
     </div>
   );
 }
+

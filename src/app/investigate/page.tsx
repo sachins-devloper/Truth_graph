@@ -47,7 +47,7 @@ function NewInvestigationForm() {
 
 export default function NewInvestigationPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
       <Header />
       <main className="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
         <Suspense fallback={<div className="text-center p-8 text-xs text-slate-500 font-mono">Loading investigation form...</div>}>
@@ -58,3 +58,5 @@ export default function NewInvestigationPage() {
     </div>
   );
 }
+
+

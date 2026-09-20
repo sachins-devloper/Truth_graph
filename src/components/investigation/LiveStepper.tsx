@@ -36,13 +36,13 @@ export const LiveStepper: React.FC<LiveStepperProps> = ({ status }) => {
   const currentIndex = getCurrentStepIndex();
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl mb-8">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-8">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold text-indigo-400 uppercase tracking-wider font-mono">
+        <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wider font-mono">
           Investigation Progress
         </span>
-        <span className="text-xs text-slate-400 font-mono">
-          Status: <strong className="text-white uppercase">{status.replace('_', ' ')}</strong>
+        <span className="text-xs text-slate-500 font-mono">
+          Status: <strong className="text-slate-900 uppercase font-bold">{status.replace('_', ' ')}</strong>
         </span>
       </div>
 
@@ -57,23 +57,23 @@ export const LiveStepper: React.FC<LiveStepperProps> = ({ status }) => {
               key={step.id}
               className={`p-3 rounded-xl border flex flex-col items-center justify-center text-center transition-all ${
                 isDone
-                  ? 'bg-emerald-950/30 border-emerald-500/40 text-emerald-300'
+                  ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
                   : isCurrent
-                  ? 'bg-indigo-950/50 border-indigo-500 text-white shadow-lg shadow-indigo-500/20'
+                  ? 'bg-indigo-50 border-indigo-300 text-indigo-900 shadow-sm'
                   : isFailed
-                  ? 'bg-rose-950/30 border-rose-500/40 text-rose-300'
-                  : 'bg-slate-950/60 border-slate-800 text-slate-500'
+                  ? 'bg-rose-50 border-rose-200 text-rose-800'
+                  : 'bg-slate-50 border-slate-200 text-slate-400'
               }`}
             >
               <div className="mb-1.5">
                 {isDone ? (
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 ) : isCurrent ? (
-                  <Loader2 className="w-4 h-4 text-indigo-400 animate-spin" />
+                  <Loader2 className="w-4 h-4 text-indigo-600 animate-spin" />
                 ) : isFailed ? (
-                  <AlertCircle className="w-4 h-4 text-rose-400" />
+                  <AlertCircle className="w-4 h-4 text-rose-600" />
                 ) : (
-                  <Clock className="w-4 h-4 text-slate-600" />
+                  <Clock className="w-4 h-4 text-slate-400" />
                 )}
               </div>
               <span className="text-[11px] font-semibold leading-tight">{step.label}</span>
@@ -84,3 +84,4 @@ export const LiveStepper: React.FC<LiveStepperProps> = ({ status }) => {
     </div>
   );
 };
+
