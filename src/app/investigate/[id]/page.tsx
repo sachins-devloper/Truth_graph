@@ -24,9 +24,12 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
   useEffect(() => {
     // Initial fetch
     fetch(`/api/investigations/${id}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
-        if (data.investigation) {
+        if (data && data.investigation) {
           setInvestigation(data.investigation);
           if (data.investigation.events) {
             setEvents(data.investigation.events);
@@ -35,7 +38,7 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
+        console.warn('Fetch error:', err);
         setLoading(false);
       });
 
@@ -59,18 +62,21 @@ export default function InvestigationDetailPage({ params }: { params: Promise<{ 
           evt.event_type === 'investigation_completed'
         ) {
           fetch(`/api/investigations/${id}`)
-            .then((r) => r.json())
+            .then((r) => {
+              if (r.ok) return r.json();
+              return null;
+            })
             .then((d) => {
-              if (d.investigation) setInvestigation(d.investigation);
-            });
+              if (d && d.investigation) setInvestigation(d.investigation);
+            })
+            .catch(console.warn);
         }
       } catch (err) {
-        console.error('SSE JSON error:', err);
+        console.warn('SSE JSON error:', err);
       }
     };
 
     eventSource.onerror = (err) => {
-      console.warn('SSE stream closed or interrupted');
       eventSource.close();
     };
 

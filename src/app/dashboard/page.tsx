@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { LayoutDashboard, Search, ShieldCheck, AlertTriangle, ArrowRight, Layers } from 'lucide-react';
+import { LayoutDashboard, Search, ArrowRight } from 'lucide-react';
 import { Investigation } from '@/types';
 
 export default function DashboardPage() {
@@ -13,15 +13,20 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetch('/api/investigations')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP Error ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        if (data.investigations) {
+        if (data && Array.isArray(data.investigations)) {
           setInvestigations(data.investigations);
         }
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
+        console.warn('Dashboard fetch warning:', err);
         setLoading(false);
       });
   }, []);
@@ -78,7 +83,7 @@ export default function DashboardPage() {
           {loading ? (
             <p className="text-xs text-slate-500 py-4 font-mono">Loading investigations...</p>
           ) : investigations.length === 0 ? (
-            <p className="text-xs text-slate-500 py-4 font-mono">No investigations found.</p>
+            <p className="text-xs text-slate-500 py-4 font-mono">No investigations found yet. Start one above!</p>
           ) : (
             <div className="space-y-3">
               {investigations.map((inv) => (
@@ -89,7 +94,7 @@ export default function DashboardPage() {
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-                        {inv.category.replace('_', ' ')}
+                        {inv.category ? inv.category.replace('_', ' ') : 'general'}
                       </span>
                       <span className="text-xs font-mono text-slate-500">
                         {new Date(inv.created_at).toLocaleDateString()}
