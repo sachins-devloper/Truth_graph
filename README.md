@@ -76,7 +76,7 @@ truthgraph/
 │   ├── app/              # Routes (/investigate, /investigate/[id], /dashboard, /api)
 │   ├── components/       # Header, LiveStepper, SearchActivityPanel, EvidenceGraph, Report
 │   └── lib/              # Database, SerpApi normalizer, AI provider, MongoDB store
-├── docs/             # Architecture, API endpoints & 3-minute hackathon demo script
+├── docs/             # Architecture & API endpoints documentation
 └── scripts/          # Live SerpApi test script & demo seeders
 ```
 
@@ -126,28 +126,7 @@ cd backend
 python -m pytest
 ```
 
----
 
-## 📽️ 3-Minute Hackathon Demo Script
-
-1. **0:00 - 0:20 | The Problem**:
-   *"Traditional search engines give links; LLMs hallucinate. TruthGraph is an AI investigation engine that searches live web sources, cross-checks evidence, and flags source contradictions."*
-
-2. **0:20 - 0:50 | Launch Investigation**:
-   - Open **[http://localhost:3000](http://localhost:3000)**.
-   - Enter: *"Is Example Technologies currently hiring backend software engineers in Chennai?"*
-
-3. **0:50 - 1:40 | Real-Time Execution & Contradiction Detection**:
-   - Show the **SerpApi Search Activity Panel** querying Google Web, Jobs, News, and Maps simultaneously.
-   - Highlight the **Conflict Alert**: Source A (Official Site) lists active Sept 2026 hiring vs. Source B (Glassdoor) showing an expired Nov 2025 listing.
-
-4. **1:40 - 2:30 | Interactive Evidence Graph**:
-   - Click nodes on the **Interactive Evidence Graph** to inspect source snippets, domains, and relevance scores.
-
-5. **2:30 - 3:00 | Architecture & SerpApi Impact**:
-   - Explain how SerpApi powers the core live data acquisition layer across web, news, maps, jobs, and shopping.
-
----
 
 ## 📄 License
 
